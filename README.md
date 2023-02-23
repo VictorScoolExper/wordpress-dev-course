@@ -1,7 +1,7 @@
 # wordpress-dev-course
 
 ## Description
-This repo contains material collect from the Complete Wordpress Developer Course(Plugin&Plugin)
+This repo contains material collect from the Complete Wordpress Developer Course(Plugin&Plugin), in this section we build a simlpe block.
 
 ## Installation
 Download the folders and add to wordpress website
