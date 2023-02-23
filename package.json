@@ -1,0 +1,35 @@
+{
+  "name": "udemy-plus",
+  "version": "1.0.0",
+  "description": "## Description This repo contains material collect from the Complete Wordpress Developer Course(Plugin&Plugin)",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "lint:md:docs": "wp-scripts lint-md-docs",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "start": "wp-scripts start",
+    "test:e2e": "wp-scripts test-e2e",
+    "test:unit": "wp-scripts test-unit-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorScoolExper/wordpress-dev-course.git"
+  },
+  "keywords": [],
+  "author": "Victor Martinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictorScoolExper/wordpress-dev-course/issues"
+  },
+  "homepage": "https://github.com/VictorScoolExper/wordpress-dev-course#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^25.4.0"
+  }
+}

@@ -14,3 +14,18 @@
  * Text Domain:       udemy-plus
  * Domain Path:       /languages
  */
+
+// the following function helps us find functions
+ if(!function_exists('add_action')){
+    echo 'Seems like you stumbled here by accident.';
+    exit;
+ }
+
+ // Setup
+define('UP_PLUGIN_DIR', plugin_dir_path( __FILE__ ));
+
+ // Includes
+ include(UP_PLUGIN_DIR . 'includes/register-blocks.php');
+
+ // Hooks
+ add_action( 'init', 'up_register_blocks' );
