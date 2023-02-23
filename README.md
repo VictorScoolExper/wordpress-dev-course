@@ -5,3 +5,6 @@ This repo contains material collect from the Complete Wordpress Developer Course
 
 ## Installation
 Download the folders and add to wordpress website
+
+## Note 
+Check out the branches to view the different sections
