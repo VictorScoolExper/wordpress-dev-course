@@ -1,17 +1,17 @@
 {
     "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
     "apiVersion": 2,
-    "name": "udemy-plus/header-tools",
-    "title": "Header Tools",
+    "name": "udemy-plus/auth-modal",
+    "title": "Authentication Modal",
     "category": "text",
-    "description": "Adds a header toolbar that contains an authentication link",
+    "description": "Adds an authentication modal",
     "textdomain": "udemy-plus",
     "attributes": {
-        "showAuth" : { 
-            "type" : "boolean",
-            "default" : true
-        }
+      "showRegister": {
+        "type": "boolean",
+        "default": true
+      }
     },
     "editorScript": "file:./index.js",
     "style": "file:./index.css"
-}
+  }
