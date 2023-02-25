@@ -52,5 +52,7 @@ add_action( 'admin_enqueue_scripts', 'bootstrap_plugin_scripts' );
 
  // Hooks
  add_action( 'init', 'up_register_blocks' );
+ add_action('rest_api_init', 'up_rest_api_init');
+ add_action('wp_enqueue_scripts', 'up_enqueue_scripts'); //files related to the front end
 
 
