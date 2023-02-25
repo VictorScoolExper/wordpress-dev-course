@@ -8,9 +8,9 @@ function up_auth_modal_render_cb($atts)
     <div class="wp-block-udemy-plus-auth-modal">
         <div class="modal-container">
             
-            <!-- <div class="modal-overlay"></div>
+            <div class="modal-overlay"></div>
 
-            <span class="modal-trick">&#8203;</span> -->
+            <span class="modal-trick">&#8203;</span>
 
             <div class="modal-content">
                 <button class="modal-btn-close" type="button">
