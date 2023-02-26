@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', ()=>{ //notifies when DOM is loade
         });
     });
 
-    signupForm.addEventListener('submit', event => {
+    signupForm.addEventListener('submit', async event => {
         event.preventDefault();
         
         const signupFieldset = signupForm.querySelector('fieldset');
@@ -64,7 +64,39 @@ document.addEventListener('DOMContentLoaded', ()=>{ //notifies when DOM is loade
                 Please wait! We are creating your account
             </div>
         `
-    })
 
+        const formData = {
+            username: signupForm.querySelector('#su-name').value,
+            email: signupForm.querySelector('#su-email').value,
+            password: signupForm.querySelector('#su-password').value
+        }
+    
+        const response = await fetch(up_auth_rest.signup, {
+            method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const responseJSON = await response.json();
+
+        if(responseJSON.status === 2){
+            signupStatus.innerHTML = `
+                <div class="modal-status modal-status-success">
+                    Success! Your account has been created
+                </div>
+            `
+
+            location.reload(); // refreshes page
+        } else {
+            signupFieldset.removeAttribute('disabled');
+            signupStatus.innerHTML = `
+                <div class="modal-status modal-status-danger">
+                    Unable to create account! Please try later.
+                </div>
+            `
+        }
+    });
 });
 
