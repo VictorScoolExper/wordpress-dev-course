@@ -7,4 +7,4 @@ This repo contains material collect from the Complete Wordpress Developer Course
 Download the folders and add to wordpress website
 
 ## Note 
-Check out the branches to view the different sections
+In section 12 hooks were added for external use by developers.

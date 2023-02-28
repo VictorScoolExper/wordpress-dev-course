@@ -31,5 +31,10 @@
   "homepage": "https://github.com/VictorScoolExper/wordpress-dev-course#readme",
   "devDependencies": {
     "@wordpress/scripts": "^25.4.0"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.10"
   }
 }
