@@ -62,5 +62,9 @@ add_action( 'admin_enqueue_scripts', 'bootstrap_plugin_scripts' );
  add_action('cuisine_edit_form_fields', 'up_cuisine_edit_form_fields');
  add_action('edited_cuisine', 'up_save_cuisine_meta'); 
  add_action('save_post_recipe', 'up_save_post_recipe');
+ // must be processed after theme or error might ocurre
+ add_action('after_setup_theme', 'up_setup_theme');
+ // A filter hook is a function that returns a new or modified value
+ add_filter( 'image_size_names_choose', 'up_custom_image_sizes' );
 
 
