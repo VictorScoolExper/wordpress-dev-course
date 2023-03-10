@@ -19,7 +19,10 @@ function up_register_blocks(){
             'render_callback' => 'up_recipe_summary_render_cb'
         ]],
         [ 'name' => 'team-members-group' ],
-        [ 'name' => 'team-member']
+        [ 'name' => 'team-member'],
+        [ 'name' => 'popular-recipes', 'options' => [
+            'render_callback' => 'up_popular_recipes_cb'
+        ]]
     ];
 
     foreach($blocks as $block){
