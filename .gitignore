@@ -5,8 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-#node modules
-node_modules
+# node modules
 
 # Coverage directory used by tools like istanbul
 coverage
