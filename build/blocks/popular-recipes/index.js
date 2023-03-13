@@ -271,6 +271,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)("udemy-plus/popular-recipes", {
   icon: {
     src: _icons_js__WEBPACK_IMPORTED_MODULE_6__["default"].primary
@@ -297,9 +298,19 @@ __webpack_require__.r(__webpack_exports__);
     terms?.forEach(term => {
       suggestions[term.name] = term;
     });
-
     // console.log(suggestions);
 
+    const cuisineIDs = cuisines.map(term => term.id);
+    const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useSelect)(select => {
+      return select("core").getEntityRecords("postType", "recipe", {
+        per_page: count,
+        _embed: true,
+        cuisine: cuisineIDs,
+        order: "desc",
+        orderByRating: 1
+      });
+    }, [count, cuisineIDs]);
+    console.log(posts);
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Settings", "udemy-plus")
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.QueryControls, {
@@ -332,21 +343,24 @@ __webpack_require__.r(__webpack_exports__);
         title
       }),
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)("Title", "udemy-plus")
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "single-post"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-      class: "single-post-image",
-      href: "#"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-      src: "",
-      alt: ""
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "single-post-detail"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-      href: "#"
-    }, "Example Title"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "by ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-      href: "#"
-    }, "John Doe"))))));
+    }), posts?.map(post => {
+      const featuredImage = post._embedded && post._embedded["wp:featuredmedia"] && post._embedded["wp:featuredmedia"].length > 0 && post._embedded["wp:featuredmedia"][0];
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        class: "single-post"
+      }, featuredImage && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+        class: "single-post-image",
+        href: post.link
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        src: featuredImage.media_details.sizes.thumbnail.source_url,
+        alt: featuredImage.alt_text
+      })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        class: "single-post-detail"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+        href: post.link
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.RawHTML, null, post.title.rendered)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "by ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+        href: post.link
+      }, post._embedded.author[0].name))));
+    })));
   }
 });
 }();

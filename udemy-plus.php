@@ -66,5 +66,8 @@ add_action( 'admin_enqueue_scripts', 'bootstrap_plugin_scripts' );
  add_action('after_setup_theme', 'up_setup_theme');
  // A filter hook is a function that returns a new or modified value
  add_filter( 'image_size_names_choose', 'up_custom_image_sizes' );
+ // the name recipe can be replaced by the post type
+ // priority is 10(lowest) and accepts 2 parameters
+ add_filter('rest_recipe_query', 'up_rest_recipe_query', 10, 2);
 
 
