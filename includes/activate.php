@@ -27,4 +27,16 @@ function up_activate_plugin() {
   // includes file that contains wordpress instalation
   require_once(ABSPATH . "/wp-admin/includes/upgrade.php");
   dbDelta( $sql );
+  // option name saved in db
+  $options = get_option('up_options');
+  
+  if(!$options){
+    // adds new record to wp_options
+    add_option('up_options', [
+      'og_title' => get_bloginfo('name'),
+      'og_img' => '',
+      'og_description' => get_bloginfo('description'),
+      'enable_og' => 1
+    ]);
+  }
 }
